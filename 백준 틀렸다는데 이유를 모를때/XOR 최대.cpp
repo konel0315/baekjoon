@@ -15,13 +15,13 @@ int *rray(string array, int length) {
 int XOR(int length, string number)
 {
 	for (int i = 0; i < length; i++) {
-		if (number[i] == '1'&&i!=length-1) { break; }//0000001 °°ÀÌ ¸¶Áö¸·¿¡ 1ÀÌ ¾Æ´Ñ Áß°£¿¡ 1ÀÌÀÖÀ»°æ¿ì »ó°ü¾øÀ½
-		else if(number[length-1]=='1') {
-			return 1;
-		}
-		return 0;
+	if (number[i] == '1' && i != length - 1) { 
+	break; }//0000001 ê°™ì´ ë§ˆì§€ë§‰ì— 1ì´ ì•„ë‹Œ ì¤‘ê°„ì— 1ì´ìžˆì„ê²½ìš° ìƒê´€ì—†ìŒ
+	else if(i==length-1&&number[length-1]=='1') {
+		return 1;
 	}
-	
+	else if (i== length - 1 && number[length - 1] == '0') { return 0; }
+}
 	int *NUM=rray(number, length);
 	
 	int i = 0;
@@ -33,7 +33,7 @@ int XOR(int length, string number)
 	int* NUM1=new int[NumOneLength];
 	for (int k = 0; k < NumOneLength; k++)
 	{
-		NUM1[k] = NUM[i + k];//1·Î ½ÃÀÛÇÏ´Â °¡Àå ±ä ¹è¿­ ÇÏ³ª Ã£±â
+		NUM1[k] = NUM[i + k];//1ë¡œ ì‹œìž‘í•˜ëŠ” ê°€ìž¥ ê¸´ ë°°ì—´ í•˜ë‚˜ ì°¾ê¸°
 	}
 	int j = 0;
 	while (NUM1[j] == 1&&j!=NumOneLength-1) {
@@ -41,7 +41,7 @@ int XOR(int length, string number)
 	}
 	int NumOne1Length = NumOneLength - j;
 	int* NUM1_1 = new int[NumOne1Length];
-	for (int t = 0; t <NumOneLength-j; t++)//NUM1-1 ¸¸µé±â
+	for (int t = 0; t <NumOneLength-j; t++)//NUM1-1 ë§Œë“¤ê¸°
 	{
 		NUM1_1[t] = NUM1[j+t];
 	}
@@ -54,10 +54,10 @@ int XOR(int length, string number)
 		for (int u = 0; u < NumOne1Length; u++) {
 			NUM2[u] = NUM1[u+y];
 		}
-		//NUM1_1 ±æÀÌ ¸¸Å­ ¹Ýº¹µÇ´Â ¹Ýº¹¹®( NUM2¸¦ ¸¸µé ¿¹Á¤
+		//NUM1_1 ê¸¸ì´ ë§Œí¼ ë°˜ë³µë˜ëŠ” ë°˜ë³µë¬¸( NUM2ë¥¼ ë§Œë“¤ ì˜ˆì •
 		for (int u = 0; u < NumOne1Length; u++) {
 			NUM2[u] = NUM2[u] ^ NUM1_1[u];
-		}//¸¸µé¾îÁø NUM2¸¦ NUM1_1°ú ¿¬»êÈÄ
+		}//ë§Œë“¤ì–´ì§„ NUM2ë¥¼ NUM1_1ê³¼ ì—°ì‚°í›„
 		int h = 0;
 		while (h < j) {
 			NUMC[h] = 1;
@@ -73,9 +73,9 @@ int XOR(int length, string number)
 		}
 		int result = stoi(strNUM);
 		if (max < result) { max = result; }
-		// MAX°ª°ú ºñ±³ÇÏ¿© Å¬°æ¿ì MAX°ª¿¡ ³Ö´Â´Ù
+		// MAXê°’ê³¼ ë¹„êµí•˜ì—¬ í´ê²½ìš° MAXê°’ì— ë„£ëŠ”ë‹¤
 		y++;
-	}//j ¹ø ¹Ýº¹ÇÏ´Â ¹Ýº¹¹®
+	}//j ë²ˆ ë°˜ë³µí•˜ëŠ” ë°˜ë³µë¬¸
 	delete[] NUM;
 	delete[] NUM1;
 	delete[] NUM1_1;
@@ -86,8 +86,8 @@ int XOR(int length, string number)
 int main()
 {
 	int a;
-	int length;//±æÀÌ
-	string number;//2Áø¼ö
+	int length;//ê¸¸ì´
+	string number;//2ì§„ìˆ˜
 	cin >> a;
 	vector<int> result;
 	for (int i = 0; i < a; i++)
