@@ -8,5 +8,5 @@ int main()
 	cin >> b;
 	if (a > b) { cout << ">"; }
 	else if (a < b) { cout << "<"; }
-	else { cout << "=="; }
+	else  { cout << "=="; }
 }
