@@ -65,8 +65,8 @@ int compare(vector<vector<int>> v,int array[8][8],int m,int n) {
 
 
 int main() {
-	cin >> m;//가로
-	cin >> n;//높이
+	cin >> m;//높이
+	cin >> n;//가로
 	v.resize(m);
 	for (int i = 0; i < m; i++) { v[i].resize(n); }
 	for (int i = 0; i < m; i++) {
