@@ -3,18 +3,17 @@ using namespace std;
 
 int N = 0;
 
-int Pibonaci(int a, int b, int n)
+int Pibonaci(int n)
 {
-	if (n == 0) return a;
-	N++;
-	if (N == n) return b;
-	return Pibonaci(b, a + b, n);
+	if (n == 0)return 0;
+	if (n == 1)return 1;
+	return Pibonaci(n - 2) + Pibonaci(n - 1);
 }
 
 int main() 
 {
 	int n;
 	cin >> n;
-	cout << Pibonaci(0, 1, n);
+	cout << Pibonaci(n);
 }
 
